@@ -197,14 +197,27 @@ function QuestionView() {
 
 				<div className="flex items-center justify-between gap-4">
 					{!showResults ? (
-						<button
-							type="button"
-							onClick={handleSubmit}
-							disabled={selectedOptions.size === 0}
-							className="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors"
-						>
-							Check Answers
-						</button>
+						<>
+							<button
+								type="button"
+								onClick={handleSubmit}
+								disabled={selectedOptions.size === 0}
+								className="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors"
+							>
+								Check Answers
+							</button>
+							<button
+								type="button"
+								onClick={async () => {
+									setShowResults(false);
+									setSelectedOptions(new Set());
+									await goToNext();
+								}}
+								className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors"
+							>
+								Skip Question
+							</button>
+						</>
 					) : (
 						<>
 							<a
