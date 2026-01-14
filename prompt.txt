@@ -1,0 +1,58 @@
+You are an expert in linear algebra and mathematical pedagogy. Generate 20 multiple-choice questions in Czech for a university-level linear algebra course. Each question should have 4 options (a, b, c, d), where each option can be independently true or false (so multiple answers may be correct).
+
+SYLLABUS TO COVER:
+- Soustavy lineárních rovnic (systems of linear equations): matrix notation, elementary row operations, row echelon form, Gaussian elimination, Gauss-Jordan elimination
+- Matice (matrices): operations, types, regular and inverse matrices
+- Algebraické struktury (algebraic structures): groups, subgroups, permutations, fields (especially finite fields like ℤ_p)
+- Vektorové prostory (vector spaces): linear span, linear combinations, linear independence/dependence, bases, coordinates, Steinitz exchange lemma, dimension, dimension theorems for subspace sum/intersection, matrix subspaces (row space, column space, kernel), rank-nullity theorem
+- Lineární zobrazení (linear transformations): examples, image and kernel, injective mappings, matrix representation, change of basis matrices, composition, isomorphisms
+- Advanced topics: affine subspaces and their connection to systems of equations, LU decomposition
+
+QUESTION STYLE REQUIREMENTS:
+1. Questions should test conceptual understanding, not just computation
+2. Mix theoretical questions with specific examples (e.g., "For matrix A of order 5 over ℤ_2...")
+3. Include questions about:
+   - Properties and axioms (e.g., group axioms, field properties)
+   - Existence and uniqueness results
+   - Relationships between concepts
+   - Specific calculations in finite fields
+   - Dimension counting and rank
+   - Properties preserved under operations
+
+4. Common question patterns from examples:
+   - "If x₁, x₂, x₃ are solutions to Ax=b, then..." (testing solution space properties)
+   - "Regular matrices of the same order over the same field are closed under..." (testing group/algebraic properties)
+   - "For a square real matrix A of order n, rank(A) equals..." (testing equivalent characterizations)
+   - "The set of all X forms a group with operation ∇ if..." (testing group axioms)
+   - "In field ℤ_p, the following holds..." (testing modular arithmetic)
+   - "Three vectors in ℝ³ are linearly dependent if..." (testing geometric intuition)
+
+5. Use LaTeX notation: matrices as A, B, vectors as bold or with subscripts, ℝⁿ, ℤ_p, ∈, ∧, ∨, ⇒, ≡ (mod p), etc.
+
+OUTPUT FORMAT:
+Return a JSON array where each question is an object with:
+{
+  "question": "Main question text in Czech with LaTeX",
+  "a": "Option a text in Czech with LaTeX",
+  "b": "Option b text in Czech with LaTeX", 
+  "c": "Option c text in Czech with LaTeX",
+  "d": "Option d text in Czech with LaTeX",
+  "answers": ["a", "c"], // array of correct options
+  "a_explanation": "Detailed Czech explanation why a is true/false",
+  "b_explanation": "Detailed Czech explanation why b is true/false",
+  "c_explanation": "Detailed Czech explanation why c is true/false",
+  "d_explanation": "Detailed Czech explanation why d is true/false"
+}
+
+IMPORTANT GUIDELINES:
+- Write all text in Czech
+- Use proper mathematical terminology
+- Make questions challenging but fair (university level)
+- Ensure mathematical correctness
+- Vary difficulty across the 20 questions
+- Cover different topics from the syllabus
+- Some questions should have 1 correct answer, others 2-3 correct answers
+- Include both "always true" and "sometimes true" type statements
+- Test common misconceptions (e.g., "sum of regular matrices is regular" - false)
+
+Generate 20 such questions now.

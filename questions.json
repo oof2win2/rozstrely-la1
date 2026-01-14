@@ -1,0 +1,15 @@
+[
+  {
+    "question": "Main question text in Czech with LaTeX",
+    "a": "Option a text in Czech with LaTeX",
+    "b": "Option b text in Czech with LaTeX",
+    "c": "Option c text in Czech with LaTeX",
+    "d": "Option d text in Czech with LaTeX",
+    "answers": ["a", "c"],
+    "a_explanation": "Detailed Czech explanation why a is true/false",
+    "b_explanation": "Detailed Czech explanation why b is true/false",
+    "c_explanation": "Detailed Czech explanation why c is true/false",
+    "d_explanation": "Detailed Czech explanation why d is true/false"
+  }
+]
+

@@ -17,13 +17,13 @@ export const todos = sqliteTable("todos", {
 });
 
 export const question = sqliteTable("questions", {
-	id: integer().primaryKey({ autoIncrement: true }),
+	id: text().primaryKey(),
 });
 
 export const questionOption = sqliteTable(
 	"question_option",
 	{
-		questionId: integer().references(() => question.id, {
+		questionId: text().references(() => question.id, {
 			onDelete: "cascade",
 		}),
 		option: text({ enum: ["a", "b", "c", "d"] }).notNull(),
