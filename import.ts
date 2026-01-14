@@ -2,7 +2,7 @@
 // import { db, schema } from "@/db";
 import * as schema from "@/db/schema"
 import {drizzle} from "drizzle-orm/libsql"
-import questions from "./questions_three.json"
+import questions from "./questions_four.json"
 import {nanoid} from "nanoid"
 const db = drizzle({
   schema,

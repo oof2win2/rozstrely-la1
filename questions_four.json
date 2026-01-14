@@ -1,0 +1,523 @@
+[
+  {
+    "question": "Pro soustavu lineárních rovnic \\( Ax = b \\), kde \\( A \\) je matice typu \\( m \\times n \\), platí:",
+    "a": "Soustava má řešení, právě když \\( h(A) = h(A|b) \\)",
+    "b": "Pokud má soustava řešení, je jednoznačné právě když \\( h(A) = n \\)",
+    "c": "Pokud \\( m < n \\) a soustava má řešení, pak má nekonečně mnoho řešení",
+    "d": "Pokud \\( m > n \\), soustava nemá řešení",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Toto je Frobeniova věta (Kronecker-Capelli): soustava \\( Ax = b \\) má řešení, právě když hodnost matice soustavy se rovná hodnosti rozšířené matice, tj. vektor \\( b \\) leží ve sloupcovém prostoru matice \\( A \\).",
+    "b_explanation": "Pravda. Řešení je jednoznačné, právě když prostor řešení homogenní soustavy \\( \\ker(A) \\) je triviální, což nastává právě když \\( h(A) = n \\) (počet neznámých).",
+    "c_explanation": "Pravda. Pokud \\( m < n \\), pak \\( h(A) \\leq m < n \\), takže \\( \\dim(\\ker(A)) = n - h(A) \\geq n - m > 0 \\). Jádro je netriviální, takže k jednomu partikulárnímu řešení můžeme přičíst nekonečně mnoho řešení homogenní soustavy.",
+    "d_explanation": "Nepravda. Počet rovnic \\( m > n \\) neznamená, že soustava nemá řešení. Některé rovnice mohou být lineárně závislé. Například soustava se třemi rovnicemi a dvěma neznámými může mít řešení, pokud jsou rovnice konzistentní."
+  },
+  {
+    "question": "Matice \\( A \\) řádu \\( n \\times n \\) nad tělesem \\( T \\) je regulární, právě když:",
+    "a": "\\( \\det(A) \\neq 0 \\)",
+    "b": "Sloupce matice \\( A \\) jsou lineárně nezávislé",
+    "c": "Existuje matice \\( B \\) taková, že \\( AB = BA = I \\)",
+    "d": "\\( h(A) = n \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Matice je regulární, právě když má nenulový determinant. Toto je jedna ze základních ekvivalentních charakterizací regularity.",
+    "b_explanation": "Pravda. Regulární matice má \\( n \\) lineárně nezávislých sloupců, což je maximální možný počet. Ekvivalentně řádky jsou také lineárně nezávislé.",
+    "c_explanation": "Pravda. Regulární matice má inverzní matici \\( A^{-1} \\) splňující \\( AA^{-1} = A^{-1}A = I \\). Toto je definice regularity pomocí existence inverze.",
+    "d_explanation": "Pravda. Matice řádu \\( n \\) je regulární, právě když má maximální hodnost \\( h(A) = n \\). Hodnost je rovna počtu lineárně nezávislých řádků (nebo sloupců)."
+  },
+  {
+    "question": "V tělese \\( \\mathbb{Z}_7 \\) platí:",
+    "a": "\\( 5^{-1} = 3 \\)",
+    "b": "\\( 3 + 5 = 1 \\)",
+    "c": "\\( 2 \\cdot 4 = 1 \\)",
+    "d": "Charakteristika tělesa je 7",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Hledáme \\( x \\) takové, že \\( 5x \\equiv 1 \\pmod{7} \\). Zkouška: \\( 5 \\cdot 3 = 15 = 2 \\cdot 7 + 1 \\equiv 1 \\pmod{7} \\). Tedy \\( 5^{-1} = 3 \\).",
+    "b_explanation": "Pravda. V \\( \\mathbb{Z}_7 \\) platí \\( 3 + 5 = 8 \\equiv 1 \\pmod{7} \\).",
+    "c_explanation": "Pravda. V \\( \\mathbb{Z}_7 \\) platí \\( 2 \\cdot 4 = 8 \\equiv 1 \\pmod{7} \\), takže \\( 2^{-1} = 4 \\) a \\( 4^{-1} = 2 \\).",
+    "d_explanation": "Pravda. Charakteristika tělesa \\( \\mathbb{Z}_p \\) je \\( p \\), tedy pro \\( \\mathbb{Z}_7 \\) je charakteristika 7. To znamená, že \\( 1 + 1 + \\ldots + 1 \\) (sedmkrát) \\( = 0 \\)."
+  },
+  {
+    "question": "Pro vektory \\( v_1 = (1, 2, 3) \\), \\( v_2 = (4, 5, 6) \\), \\( v_3 = (7, 8, 9) \\) v \\( \\mathbb{R}^3 \\) platí:",
+    "a": "Jsou lineárně závislé",
+    "b": "\\( \\dim(\\langle v_1, v_2, v_3 \\rangle) = 3 \\)",
+    "c": "Platí \\( v_1 - 2v_2 + v_3 = 0 \\)",
+    "d": "Tvoří bázi \\( \\mathbb{R}^3 \\)",
+    "answers": [
+      "a",
+      "c"
+    ],
+    "a_explanation": "Pravda. Vektory jsou lineárně závislé. Ověření: \\( v_3 - 2v_2 + v_1 = (7-8+1, 8-10+2, 9-12+3) = (0, 0, 0) \\). Tedy existuje netriviální lineární kombinace rovná nule.",
+    "b_explanation": "Nepravda. Protože vektory jsou lineárně závislé, generují podprostor dimenze menší než 3. Konkrétně \\( \\dim(\\langle v_1, v_2, v_3 \\rangle) = 2 \\), generují rovinu.",
+    "c_explanation": "Pravda. Dosazením: \\( (1, 2, 3) - 2(4, 5, 6) + (7, 8, 9) = (1-8+7, 2-10+8, 3-12+9) = (0, 0, 0) \\).",
+    "d_explanation": "Nepravda. Báze \\( \\mathbb{R}^3 \\) musí obsahovat 3 lineárně nezávislé vektory. Tyto vektory jsou lineárně závislé, proto netvoří bázi."
+  },
+  {
+    "question": "Pro transpozici matice platí:",
+    "a": "\\( (AB)^T = B^T A^T \\)",
+    "b": "\\( (A^T)^T = A \\)",
+    "c": "\\( (A + B)^T = A^T + B^T \\)",
+    "d": "\\( h(A^T) = h(A) \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Transpozice součinu obrací pořadí činitelů. Důkaz: \\( ((AB)^T)_{ij} = (AB)_{ji} = \\sum_k A_{jk} B_{ki} = \\sum_k (B^T)_{ik} (A^T)_{kj} = (B^T A^T)_{ij} \\).",
+    "b_explanation": "Pravda. Dvojitá transpozice vrací původní matici. \\( ((A^T)^T)_{ij} = (A^T)_{ji} = A_{ij} \\).",
+    "c_explanation": "Pravda. Transpozice je lineární operace, zachovává sčítání: \\( (A + B)^T_{ij} = (A + B)_{ji} = A_{ji} + B_{ji} = A^T_{ij} + B^T_{ij} \\).",
+    "d_explanation": "Pravda. Transpozice zachovává hodnost. Řádkový prostor \\( A \\) se stane sloupcovým prostorem \\( A^T \\) a naopak, ale dimenze (hodnost) zůstává stejná."
+  },
+  {
+    "question": "Nechť \\( H \\) je podgrupa grupy \\( G \\). Pak platí:",
+    "a": "Neutrální prvek \\( G \\) leží v \\( H \\)",
+    "b": "Pro každý \\( h \\in H \\) je také \\( h^{-1} \\in H \\)",
+    "c": "\\( H \\) je uzavřená na operaci grupy",
+    "d": "\\( |H| \\) dělí \\( |G| \\) pro konečné grupy",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Podgrupa musí obsahovat neutrální prvek nadgrupy. To plyne z požadavku, že podgrupa sama tvoří grupu s indukovanou operací.",
+    "b_explanation": "Pravda. Podgrupa musí být uzavřená na inverze. Pro každý prvek podgrupy musí v ní ležet i jeho inverze.",
+    "c_explanation": "Pravda. Podgrupa musí být uzavřená na grupovou operaci: pro \\( h_1, h_2 \\in H \\) je \\( h_1 \\cdot h_2 \\in H \\).",
+    "d_explanation": "Pravda. Toto je Lagrangeova věta: řád podgrupy dělí řád grupy. Platí \\( |G| = [G:H] \\cdot |H| \\), kde \\( [G:H] \\) je index podgrupy."
+  },
+  {
+    "question": "Pro lineární obal (span) množiny vektorů \\( \\{v_1, \\ldots, v_k\\} \\) platí:",
+    "a": "Je to nejmenší podprostor obsahující všechny vektory \\( v_1, \\ldots, v_k \\)",
+    "b": "\\( \\langle v_1, \\ldots, v_k \\rangle = \\{\\alpha_1 v_1 + \\ldots + \\alpha_k v_k : \\alpha_i \\in T\\} \\)",
+    "c": "Pokud přidáme vektor z lineárního obalu, obal se nezmění",
+    "d": "\\( \\dim(\\langle v_1, \\ldots, v_k \\rangle) = k \\)",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Lineární obal je průnik všech podprostorů obsahujících dané vektory, tedy nejmenší takový podprostor.",
+    "b_explanation": "Pravda. Lineární obal je množina všech lineárních kombinací daných vektorů s koeficienty z tělesa \\( T \\).",
+    "c_explanation": "Pravda. Pokud \\( v \\in \\langle v_1, \\ldots, v_k \\rangle \\), pak \\( \\langle v_1, \\ldots, v_k, v \\rangle = \\langle v_1, \\ldots, v_k \\rangle \\), protože \\( v \\) lze vyjádřit pomocí ostatních.",
+    "d_explanation": "Nepravda. Dimenze lineárního obalu je rovna maximálnímu počtu lineárně nezávislých vektorů mezi \\( v_1, \\ldots, v_k \\), což může být menší než \\( k \\) (pokud jsou vektory lineárně závislé)."
+  },
+  {
+    "question": "Pro čtvercovou matici \\( A \\) řádu \\( n \\) platí vztah \\( A^2 = A \\) (idempotentní matice). Pak:",
+    "a": "Možné hodnoty hodnosti \\( A \\) jsou \\( 0, 1, 2, \\ldots, n \\)",
+    "b": "Pokud \\( A \\neq O \\) a \\( A \\neq I \\), pak \\( A \\) není regulární",
+    "c": "\\( \\text{Im}(A) = \\ker(I - A) \\)",
+    "d": "\\( V = \\text{Im}(A) \\oplus \\ker(A) \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Pro idempotentní matici může být hodnost jakékoli celé číslo od 0 do \\( n \\). Příklady: \\( O \\) má hodnost 0, \\( I \\) má hodnost \\( n \\), projekční matice mají libovolnou hodnost.",
+    "b_explanation": "Pravda. Pokud \\( A \\) je regulární a \\( A^2 = A \\), pak násobením \\( A^{-1} \\) dostaneme \\( A = I \\). Tedy jediná regulární idempotentní matice je jednotková matice.",
+    "c_explanation": "Pravda. Vektor \\( v \\in \\text{Im}(A) \\) lze psát jako \\( v = Aw \\), pak \\( (I-A)v = (I-A)Aw = Aw - A^2w = Aw - Aw = 0 \\). Opačně, pokud \\( (I-A)v = 0 \\), pak \\( v = Av \\in \\text{Im}(A) \\).",
+    "d_explanation": "Pravda. Pro idempotentní matici platí, že prostor se rozkládá na přímý součet obrazu a jádra. Každý vektor \\( v = Av + (v - Av) \\), kde \\( Av \\in \\text{Im}(A) \\) a \\( A(v - Av) = Av - A^2v = Av - Av = 0 \\)."
+  },
+  {
+    "question": "Gauss-Jordanova eliminace se od Gaussovy eliminace liší tím, že:",
+    "a": "Vytváří redukovaný řádkově odstupňovaný tvar (RREF)",
+    "b": "Eliminuje i nad pivoty, nejen pod nimi",
+    "c": "Zajišťuje, že všechny pivoty jsou rovny 1",
+    "d": "Má menší časovou složitost",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Gauss-Jordanova eliminace vytváří RREF (Reduced Row Echelon Form), kde jsou navíc splněny podmínky: pivoty jsou 1 a nad každým pivotem jsou nuly.",
+    "b_explanation": "Pravda. Na rozdíl od Gaussovy eliminace, která vytváří nuly pouze pod pivoty, Gauss-Jordan vytváří nuly i nad pivoty (zpětným chodem).",
+    "c_explanation": "Pravda. V RREF jsou všechny pivoty normalizovány na hodnotu 1. To se dosáhne vydělením příslušného řádku hodnotou pivotu.",
+    "d_explanation": "Nepravda. Gauss-Jordanova eliminace má ve skutečnosti vyšší časovou složitost než Gaussova eliminace, protože provádí více operací (eliminace nad i pod pivoty). Pro řešení soustav je Gaussova eliminace se zpětnou substitucí efektivnější."
+  },
+  {
+    "question": "Pro matici \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\) nad \\( \\mathbb{R} \\) platí:",
+    "a": "\\( \\det(A) = -2 \\)",
+    "b": "\\( A \\) je regulární",
+    "c": "\\( A^{-1} = \\begin{pmatrix} -2 & 1 \\\\ 3/2 & -1/2 \\end{pmatrix} \\)",
+    "d": "Hodnost \\( A \\) je 1",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. \\( \\det(A) = 1 \\cdot 4 - 2 \\cdot 3 = 4 - 6 = -2 \\).",
+    "b_explanation": "Pravda. Protože \\( \\det(A) = -2 \\neq 0 \\), matice je regulární (invertibilní).",
+    "c_explanation": "Pravda. Pro matici \\( 2 \\times 2 \\): \\( A^{-1} = \\frac{1}{\\det(A)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\frac{1}{-2} \\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix} = \\begin{pmatrix} -2 & 1 \\\\ 3/2 & -1/2 \\end{pmatrix} \\).",
+    "d_explanation": "Nepravda. Matice je regulární, tedy má maximální hodnost 2, nikoli 1."
+  },
+  {
+    "question": "Pro vektorový prostor \\( \\mathbb{R}^{2 \\times 2} \\) všech reálných matic \\( 2 \\times 2 \\) platí:",
+    "a": "\\( \\dim(\\mathbb{R}^{2 \\times 2}) = 4 \\)",
+    "b": "Množina symetrických matic tvoří podprostor dimenze 3",
+    "c": "Množina regulárních matic tvoří podprostor",
+    "d": "Množina matic s nulovou stopou tvoří podprostor dimenze 3",
+    "answers": [
+      "a",
+      "b",
+      "d"
+    ],
+    "a_explanation": "Pravda. Prostor matic \\( 2 \\times 2 \\) má dimenzi \\( 2 \\cdot 2 = 4 \\). Standardní báze tvoří matice \\( E_{11}, E_{12}, E_{21}, E_{22} \\) s jedničkou na jedné pozici a nulami jinde.",
+    "b_explanation": "Pravda. Symetrická matice \\( 2 \\times 2 \\) má tvar \\( \\begin{pmatrix} a & b \\\\ b & c \\end{pmatrix} \\), tedy závisí na 3 parametrech. Báze: \\( \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix} \\).",
+    "c_explanation": "Nepravda. Množina regulárních matic není podprostor - není uzavřená na sčítání (součet regulárních matic může být singulární: \\( I + (-I) = O \\)) a neobsahuje nulový vektor (nulová matice je singulární).",
+    "d_explanation": "Pravda. Matice s nulovou stopou splňují \\( a_{11} + a_{22} = 0 \\), což je jedna lineární podmínka. Podprostor má dimenzi \\( 4 - 1 = 3 \\). Je uzavřený na sčítání a násobení skalárem."
+  },
+  {
+    "question": "Nechť \\( f: \\mathbb{R}^3 \\to \\mathbb{R}^2 \\) je lineární zobrazení s maticí \\( A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\). Pak:",
+    "a": "\\( \\dim(\\ker(f)) = 1 \\)",
+    "b": "\\( \\dim(\\text{Im}(f)) = 2 \\)",
+    "c": "\\( f \\) je surjektivní",
+    "d": "\\( f \\) je injektivní",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Matice má hodnost 2 (řádky jsou lineárně nezávislé). Podle věty o dimenzi: \\( \\dim(\\ker(f)) = 3 - h(A) = 3 - 2 = 1 \\).",
+    "b_explanation": "Pravda. \\( \\dim(\\text{Im}(f)) = h(A) = 2 \\). Řádky matice jsou lineárně nezávislé, takže hodnost je 2.",
+    "c_explanation": "Pravda. \\( \\text{Im}(f) \\) je podprostor \\( \\mathbb{R}^2 \\) dimenze 2, tedy \\( \\text{Im}(f) = \\mathbb{R}^2 \\). Zobrazení je surjektivní (na).",
+    "d_explanation": "Nepravda. Zobrazení není injektivní, protože \\( \\dim(\\ker(f)) = 1 > 0 \\), tedy jádro je netriviální."
+  },
+  {
+    "question": "Pro konečné těleso \\( \\mathbb{Z}_p \\), kde \\( p \\) je prvočíslo, platí:",
+    "a": "Každý nenulový prvek má multiplikativní inverzi",
+    "b": "\\( (\\mathbb{Z}_p \\setminus \\{0\\}, \\cdot) \\) tvoří grupu",
+    "c": "Těleso má právě \\( p \\) prvků",
+    "d": "Pro všechna \\( a \\in \\mathbb{Z}_p \\) platí \\( a^p = a \\) (malá Fermatova věta)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. V tělese má každý nenulový prvek multiplikativní inverzi. Pro \\( \\mathbb{Z}_p \\) to plyne z Bezoutovy identity (gcd(\\( a, p \\)) = 1 pro \\( 0 < a < p \\)).",
+    "b_explanation": "Pravda. Nenulové prvky tělesa tvoří grupu vzhledem k násobení. Tato grupa se značí \\( \\mathbb{Z}_p^* \\) a má \\( p-1 \\) prvků.",
+    "c_explanation": "Pravda. \\( \\mathbb{Z}_p = \\{0, 1, 2, \\ldots, p-1\\} \\), tedy má přesně \\( p \\) prvků.",
+    "d_explanation": "Pravda. Malá Fermatova věta: pro prvočíslo \\( p \\) a libovolné \\( a \\) platí \\( a^p \\equiv a \\pmod{p} \\). Pro \\( a \\neq 0 \\) ekvivalentně \\( a^{p-1} \\equiv 1 \\pmod{p} \\)."
+  },
+  {
+    "question": "Pro součet a průnik podprostorů \\( U, W \\) vektorového prostoru \\( V \\) platí:",
+    "a": "\\( U + W = \\{u + w : u \\in U, w \\in W\\} \\)",
+    "b": "\\( U \\cap W \\) je vždy podprostor",
+    "c": "\\( U \\cup W \\) je vždy podprostor",
+    "d": "Pokud \\( U \\cap W = \\{0\\} \\), pak součet \\( U + W \\) je přímý",
+    "answers": [
+      "a",
+      "b",
+      "d"
+    ],
+    "a_explanation": "Pravda. Součet podprostorů je definován jako množina všech součtů vektorů, jeden z každého podprostoru.",
+    "b_explanation": "Pravda. Průnik podprostorů je vždy podprostor. Je uzavřený na sčítání a násobení skalárem, protože oba tyto úkony zachovávají příslušnost k oběma podprostorům.",
+    "c_explanation": "Nepravda. Sjednocení podprostorů je podprostor pouze pokud jeden obsahuje druhý. Jinak sjednocení není uzavřené na sčítání. Např. v \\( \\mathbb{R}^2 \\): sjednocení os \\( x \\) a \\( y \\) není podprostor.",
+    "d_explanation": "Pravda. Přímý součet \\( U \\oplus W \\) znamená, že \\( U + W \\) a navíc \\( U \\cap W = \\{0\\} \\). V tom případě je každý vektor ze součtu jednoznačně rozložitelný na složky z \\( U \\) a \\( W \\)."
+  },
+  {
+    "question": "Pro elementární matice \\( E \\) (matice odpovídající elementární řádkové operaci) platí:",
+    "a": "\\( E \\) je vždy regulární",
+    "b": "\\( E^{-1} \\) je také elementární matice",
+    "c": "Násobení \\( EA \\) zleva provede odpovídající řádkovou operaci na \\( A \\)",
+    "d": "Každá regulární matice je součinem elementárních matic",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Každá elementární operace je invertibilní (výměna řádků, násobení nenulovým skalárem, přičtení násobku), proto je odpovídající elementární matice regulární.",
+    "b_explanation": "Pravda. Inverze elementární operace je opět elementární operace: inverze výměny je táž výměna, inverze násobení \\( c \\) je násobení \\( 1/c \\), inverze přičtení je odečtení.",
+    "c_explanation": "Pravda. Elementární matice \\( E \\) vznikne z jednotkové matice provedením dané operace. Násobení \\( EA \\) pak provede tutéž operaci na matici \\( A \\).",
+    "d_explanation": "Pravda. Gaussova eliminace převede regulární matici na jednotkovou pomocí elementárních operací: \\( E_k \\cdots E_1 A = I \\), tedy \\( A = E_1^{-1} \\cdots E_k^{-1} \\), což je součin elementárních matic."
+  },
+  {
+    "question": "Pro symetrickou matici \\( A = A^T \\) nad \\( \\mathbb{R} \\) platí:",
+    "a": "Všechna vlastní čísla jsou reálná",
+    "b": "Vlastní vektory příslušné různým vlastním číslům jsou ortogonální",
+    "c": "\\( A \\) je vždy diagonalizovatelná",
+    "d": "\\( A \\) je vždy regulární",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Reálná symetrická matice má pouze reálná vlastní čísla. Toto je důsledek spektrální věty.",
+    "b_explanation": "Pravda. Pro symetrickou matici jsou vlastní vektory příslušné různým vlastním číslům ortogonální: \\( \\lambda_1 \\neq \\lambda_2 \\implies v_1 \\perp v_2 \\).",
+    "c_explanation": "Pravda. Reálná symetrická matice je vždy diagonalizovatelná (dokonce ortogonálně diagonalizovatelná). Existuje ortonormální báze z vlastních vektorů.",
+    "d_explanation": "Nepravda. Symetrická matice nemusí být regulární. Například nulová matice \\( O \\) je symetrická, ale singulární."
+  },
+  {
+    "question": "Nechť \\( B_1, B_2 \\) jsou dvě různé báze vektorového prostoru \\( V \\) dimenze \\( n \\). Pro matici přechodu \\( P \\) od \\( B_1 \\) k \\( B_2 \\) platí:",
+    "a": "\\( P \\) je matice typu \\( n \\times n \\)",
+    "b": "\\( \\det(P) \\neq 0 \\)",
+    "c": "Pokud \\( [v]_{B_1} \\) je souřadnicový vektor \\( v \\) v \\( B_1 \\), pak \\( [v]_{B_2} = P^{-1}[v]_{B_1} \\)",
+    "d": "Sloupce \\( P \\) tvoří bázi \\( V \\)",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Matice přechodu mezi bázemi téhož prostoru dimenze \\( n \\) je čtvercová matice řádu \\( n \\).",
+    "b_explanation": "Pravda. Matice přechodu je vždy regulární, protože její sloupce (souřadnice bázových vektorů) jsou lineárně nezávislé.",
+    "c_explanation": "Pravda. Standardní konvence: pokud \\( P \\) je matice, jejíž sloupce jsou souřadnice vektorů \\( B_2 \\) v bázi \\( B_1 \\), pak \\( [v]_{B_1} = P[v]_{B_2} \\), tedy \\( [v]_{B_2} = P^{-1}[v]_{B_1} \\).",
+    "d_explanation": "Nepravda. Sloupce \\( P \\) jsou souřadnicové vektory v \\( \\mathbb{R}^n \\), ne vektory prostoru \\( V \\) (pokud \\( V \\neq \\mathbb{R}^n \\)). Tvoří bázi \\( \\mathbb{R}^n \\), ale nemusí být přímo vektory z \\( V \\)."
+  },
+  {
+    "question": "Pro množinu polynomů stupně nejvýše \\( n \\) nad \\( \\mathbb{R} \\) (značíme \\( P_n(\\mathbb{R}) \\)) platí:",
+    "a": "Je to vektorový prostor",
+    "b": "\\( \\dim(P_n(\\mathbb{R})) = n \\)",
+    "c": "\\( \\{1, x, x^2, \\ldots, x^n\\} \\) je báze tohoto prostoru",
+    "d": "Množina polynomů stupně přesně \\( n \\) je podprostor",
+    "answers": [
+      "a",
+      "c"
+    ],
+    "a_explanation": "Pravda. \\( P_n(\\mathbb{R}) \\) splňuje axiomy vektorového prostoru se standardním sčítáním polynomů a násobením skalárem.",
+    "b_explanation": "Nepravda. \\( \\dim(P_n(\\mathbb{R})) = n + 1 \\), nikoli \\( n \\). Báze obsahuje \\( n + 1 \\) vektorů: \\( 1, x, x^2, \\ldots, x^n \\).",
+    "c_explanation": "Pravda. Tato množina je standardní báze \\( P_n(\\mathbb{R}) \\). Vektory jsou lineárně nezávislé a generují celý prostor.",
+    "d_explanation": "Nepravda. Množina polynomů stupně přesně \\( n \\) není podprostor - neobsahuje nulový polynom (který má stupeň nedefinovaný nebo \\( -\\infty \\)) a není uzavřená na sčítání (součet dvou polynomů stupně \\( n \\) může mít nižší stupeň)."
+  },
+  {
+    "question": "Pro matici \\( A \\) typu \\( m \\times n \\) a větu o dimenzi (rank-nullity theorem) platí:",
+    "a": "\\( h(A) + \\dim(\\ker(A)) = n \\)",
+    "b": "\\( h(A) \\leq \\min(m, n) \\)",
+    "c": "Pokud \\( m = n \\) a \\( \\ker(A) = \\{0\\} \\), pak \\( A \\) je regulární",
+    "d": "\\( h(A) + \\dim(\\ker(A)) = m \\)",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Věta o dimenzi říká, že pro lineární zobrazení \\( f: \\mathbb{R}^n \\to \\mathbb{R}^m \\) s maticí \\( A \\) platí \\( \\dim(\\text{Im}(f)) + \\dim(\\ker(f)) = n \\), tedy \\( h(A) + \\dim(\\ker(A)) = n \\).",
+    "b_explanation": "Pravda. Hodnost matice nemůže překročit počet řádků ani počet sloupců: \\( h(A) \\leq m \\) (počet nezávislých řádků) a \\( h(A) \\leq n \\) (počet nezávislých sloupců).",
+    "c_explanation": "Pravda. Pro čtvercovou matici \\( n \\times n \\): pokud \\( \\ker(A) = \\{0\\} \\), pak \\( \\dim(\\ker(A)) = 0 \\), tedy \\( h(A) = n \\), což znamená, že \\( A \\) má maximální hodnost a je regulární.",
+    "d_explanation": "Nepravda. Správná rovnost je \\( h(A) + \\dim(\\ker(A)) = n \\) (počet sloupců), nikoli \\( m \\) (počet řádků)."
+  },
+  {
+    "question": "V tělese \\( \\mathbb{Z}_3 \\) uvažujme matici \\( A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix} \\). Platí:",
+    "a": "\\( \\det(A) = 0 \\)",
+    "b": "\\( A \\) je regulární",
+    "c": "\\( A^{-1} = A \\)",
+    "d": "\\( A^2 = I \\)",
+    "answers": [
+      "a"
+    ],
+    "a_explanation": "Pravda. V \\( \\mathbb{Z}_3 \\): \\( \\det(A) = 1 \\cdot 1 - 2 \\cdot 2 = 1 - 4 = 1 - 1 = 0 \\) (protože \\( 4 \\equiv 1 \\pmod{3} \\)).",
+    "b_explanation": "Nepravda. Protože \\( \\det(A) = 0 \\), matice \\( A \\) není regulární.",
+    "c_explanation": "Nepravda. Matice \\( A \\) není regulární, takže inverze neexistuje.",
+    "d_explanation": "Nepravda. Spočtěme \\( A^2 \\) v \\( \\mathbb{Z}_3 \\): \\( A^2 = \\begin{pmatrix} 1+4 & 2+2 \\\\ 2+2 & 4+1 \\end{pmatrix} = \\begin{pmatrix} 5 & 4 \\\\ 4 & 5 \\end{pmatrix} \\equiv \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\pmod{3} \\), což není \\( I \\)."
+  },
+  {
+    "question": "Pro nilpotentní matici \\( N \\) (tj. existuje \\( k \\) takové, že \\( N^k = O \\)) platí:",
+    "a": "\\( N \\) není regulární",
+    "b": "Všechna vlastní čísla \\( N \\) jsou nulová",
+    "c": "\\( I + N \\) je regulární",
+    "d": "\\( \\det(N) = 0 \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Pokud by \\( N \\) byla regulární, pak \\( N^k = O \\) by implikovalo \\( I = N^{-k} N^k = N^{-k} O = O \\), což je spor.",
+    "b_explanation": "Pravda. Pokud \\( \\lambda \\) je vlastní číslo, pak \\( N^k v = \\lambda^k v \\) pro vlastní vektor \\( v \\). Z \\( N^k = O \\) plyne \\( \\lambda^k = 0 \\), tedy \\( \\lambda = 0 \\).",
+    "c_explanation": "Pravda. \\( (I + N)(I - N + N^2 - N^3 + \\ldots + (-1)^{k-1}N^{k-1}) = I - (-N)^k = I - (-1)^k N^k = I \\). Tedy \\( I + N \\) má inverzi.",
+    "d_explanation": "Pravda. Determinant je součin vlastních čísel (s násobností). Protože všechna vlastní čísla jsou 0, je \\( \\det(N) = 0 \\)."
+  },
+  {
+    "question": "Pro zobrazení \\( f: \\mathbb{R}^2 \\to \\mathbb{R}^2 \\) definované \\( f(x, y) = (x + y, x - y) \\) platí:",
+    "a": "\\( f \\) je lineární zobrazení",
+    "b": "\\( f \\) je injektivní",
+    "c": "\\( f \\) je surjektivní",
+    "d": "Matice zobrazení ve standardní bázi je \\( \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Lze ověřit aditivitu a homogenitu, nebo přímo vidět, že zobrazení je dáno maticí, tedy je lineární.",
+    "b_explanation": "Pravda. Matice \\( A = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\) má \\( \\det(A) = -1 - 1 = -2 \\neq 0 \\), tedy je regulární a zobrazení je injektivní.",
+    "c_explanation": "Pravda. Pro lineární zobrazení \\( \\mathbb{R}^2 \\to \\mathbb{R}^2 \\) s regulární maticí je zobrazení bijektivní, tedy surjektivní.",
+    "d_explanation": "Pravda. \\( f(e_1) = f(1, 0) = (1, 1) \\) je první sloupec, \\( f(e_2) = f(0, 1) = (1, -1) \\) je druhý sloupec matice."
+  },
+  {
+    "question": "Množina \\( \\{(x, y, z) \\in \\mathbb{R}^3 : x + 2y - z = 0\\} \\):",
+    "a": "Je podprostor \\( \\mathbb{R}^3 \\)",
+    "b": "Má dimenzi 2",
+    "c": "Je jádro lineárního zobrazení",
+    "d": "Obsahuje vektor \\( (1, 1, 3) \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Množina řešení homogenní lineární rovnice je vždy podprostor. Obsahuje nulu a je uzavřená na lineární kombinace.",
+    "b_explanation": "Pravda. Jedna netriviální lineární podmínka v \\( \\mathbb{R}^3 \\) definuje podprostor dimenze \\( 3 - 1 = 2 \\) (rovina procházející počátkem).",
+    "c_explanation": "Pravda. Množina je \\( \\ker(f) \\), kde \\( f(x, y, z) = x + 2y - z \\) je lineární funkcionál \\( \\mathbb{R}^3 \\to \\mathbb{R} \\).",
+    "d_explanation": "Pravda. Dosazení: \\( 1 + 2 \\cdot 1 - 3 = 1 + 2 - 3 = 0 \\). Vektor splňuje podmínku."
+  },
+  {
+    "question": "Pro matici v REF (řádkově odstupňovaném tvaru) platí:",
+    "a": "Všechny nulové řádky jsou dole",
+    "b": "Pivot každého nenulového řádku je napravo od pivotu předchozího řádku",
+    "c": "Pod každým pivotem jsou samé nuly",
+    "d": "Všechny pivoty musí být rovny 1",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. V REF jsou nulové řádky soustředěny na konci matice, pod všemi nenulovými řádky.",
+    "b_explanation": "Pravda. Pivoty (první nenulové prvky řádků) tvoří schodovitý vzor - každý další pivot je v sloupci více vpravo.",
+    "c_explanation": "Pravda. Pod pivotem (v témže sloupci v následujících řádcích) jsou pouze nuly. To je výsledek eliminace.",
+    "d_explanation": "Nepravda. V REF pivoty nemusí být 1. Podmínka \\( \\text{pivot} = 1 \\) je dodatečný požadavek pro RREF (redukovaný REF)."
+  },
+  {
+    "question": "Pro lineární zobrazení \\( f: V \\to W \\) a jeho matici \\( A \\) vzhledem k bázím \\( B_V, B_W \\) platí:",
+    "a": "Sloupec \\( i \\) matice \\( A \\) obsahuje souřadnice \\( f(v_i) \\) v bázi \\( B_W \\), kde \\( v_i \\) je \\( i \\)-tý vektor báze \\( B_V \\)",
+    "b": "\\( [f(v)]_{B_W} = A \\cdot [v]_{B_V} \\) pro každý \\( v \\in V \\)",
+    "c": "Změna báze v \\( V \\) změní matici zobrazení",
+    "d": "Hodnost \\( A \\) nezávisí na volbě bází",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Matice lineárního zobrazení je konstruována tak, že \\( i \\)-tý sloupec obsahuje souřadnice obrazu \\( i \\)-tého bázového vektoru.",
+    "b_explanation": "Pravda. Toto je fundamentální vztah mezi lineárním zobrazením a jeho maticovou reprezentací: matice transformuje souřadnice.",
+    "c_explanation": "Pravda. Při změně báze ve zdrojovém nebo cílovém prostoru se matice změní (transformuje se pomocí matic přechodu).",
+    "d_explanation": "Pravda. Hodnost zobrazení \\( h(f) = \\dim(\\text{Im}(f)) \\) je invariant zobrazení, nezávislý na volbě bází. Matice v různých bázích mají stejnou hodnost."
+  },
+  {
+    "question": "Pro permutaci \\( \\sigma = (1\\ 3\\ 5)(2\\ 4) \\) v \\( S_5 \\) (zapsanou v cyklickém zápisu) platí:",
+    "a": "\\( \\sigma(1) = 3 \\)",
+    "b": "\\( \\sigma(5) = 1 \\)",
+    "c": "Řád permutace \\( \\sigma \\) je 6",
+    "d": "\\( \\sigma \\) je sudá permutace",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Cyklus \\( (1\\ 3\\ 5) \\) znamená \\( 1 \\mapsto 3 \\mapsto 5 \\mapsto 1 \\), tedy \\( \\sigma(1) = 3 \\).",
+    "b_explanation": "Pravda. Z cyklu \\( (1\\ 3\\ 5) \\): \\( \\sigma(5) = 1 \\).",
+    "c_explanation": "Pravda. Řád permutace je LCM délek disjunktních cyklů. Máme cyklus délky 3 a cyklus délky 2: \\( \\text{lcm}(3, 2) = 6 \\).",
+    "d_explanation": "Nepravda. Cyklus délky 3 je součin 2 transpozic (sudý), cyklus délky 2 je 1 transpozice (lichý). Celkem \\( 2 + 1 = 3 \\) transpozice, tedy \\( \\sigma \\) je lichá permutace."
+  },
+  {
+    "question": "Pro inverzní matici platí:",
+    "a": "\\( (AB)^{-1} = B^{-1}A^{-1} \\) pro regulární \\( A, B \\)",
+    "b": "\\( (A^{-1})^{-1} = A \\)",
+    "c": "\\( (A^T)^{-1} = (A^{-1})^T \\)",
+    "d": "\\( (\\alpha A)^{-1} = \\alpha A^{-1} \\) pro \\( \\alpha \\neq 0 \\)",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Ověření: \\( (AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I \\). Obdobně pro opačné pořadí.",
+    "b_explanation": "Pravda. Inverze inverze vrací původní matici. \\( A^{-1} \\cdot A = I \\) znamená, že \\( A \\) je inverzí k \\( A^{-1} \\).",
+    "c_explanation": "Pravda. Ověření: \\( A^T (A^{-1})^T = (A^{-1}A)^T = I^T = I \\), tedy \\( (A^T)^{-1} = (A^{-1})^T \\).",
+    "d_explanation": "Nepravda. Správně je \\( (\\alpha A)^{-1} = \\frac{1}{\\alpha} A^{-1} \\), nikoli \\( \\alpha A^{-1} \\). Ověření: \\( (\\alpha A)(\\frac{1}{\\alpha} A^{-1}) = A A^{-1} = I \\)."
+  },
+  {
+    "question": "Nechť \\( A \\) je matice \\( 3 \\times 4 \\) s hodností 2. Pro soustavu \\( Ax = 0 \\) platí:",
+    "a": "Prostor řešení má dimenzi 2",
+    "b": "Soustava má nekonečně mnoho řešení",
+    "c": "Prostor řešení je podprostor \\( \\mathbb{R}^4 \\)",
+    "d": "Existují právě 2 lineárně nezávislá řešení",
+    "answers": [
+      "a",
+      "b",
+      "c"
+    ],
+    "a_explanation": "Pravda. Podle věty o dimenzi: \\( \\dim(\\ker(A)) = 4 - h(A) = 4 - 2 = 2 \\).",
+    "b_explanation": "Pravda. Dimenze jádra je 2 > 0, takže jádro obsahuje nenulové vektory. Nad nekonečným tělesem to znamená nekonečně mnoho řešení.",
+    "c_explanation": "Pravda. Jádro \\( \\ker(A) \\) je vždy podprostor prostoru, ze kterého zobrazení vychází, tedy \\( \\mathbb{R}^4 \\).",
+    "d_explanation": "Nepravda formulací. Existuje báze jádra o 2 prvcích (tedy 2 lineárně nezávislá řešení tvořící bázi), ale lineárně nezávislých řešení je nekonečně mnoho (každá dvojice nezávislých vektorů z jádra). Správněji: báze jádra má 2 prvky."
+  },
+  {
+    "question": "Pro zobrazení \\( T: \\mathbb{R}^{2 \\times 2} \\to \\mathbb{R} \\) definované \\( T(A) = \\text{tr}(A) \\) (stopa matice) platí:",
+    "a": "\\( T \\) je lineární zobrazení",
+    "b": "\\( \\ker(T) \\) je prostor matic s nulovou stopou",
+    "c": "\\( \\dim(\\ker(T)) = 3 \\)",
+    "d": "\\( T \\) je surjektivní",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Stopa je lineární: \\( \\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B) \\) a \\( \\text{tr}(\\alpha A) = \\alpha \\text{tr}(A) \\).",
+    "b_explanation": "Pravda. \\( \\ker(T) = \\{A : \\text{tr}(A) = 0\\} \\), tedy matice s nulovou stopou.",
+    "c_explanation": "Pravda. \\( \\dim(\\mathbb{R}^{2 \\times 2}) = 4 \\), \\( \\dim(\\text{Im}(T)) \\leq \\dim(\\mathbb{R}) = 1 \\). Jelikož \\( T \\) není nulové (např. \\( T(I) = 2 \\)), je \\( \\dim(\\text{Im}(T)) = 1 \\). Tedy \\( \\dim(\\ker(T)) = 4 - 1 = 3 \\).",
+    "d_explanation": "Pravda. Obraz \\( T \\) je celé \\( \\mathbb{R} \\), protože pro každé \\( r \\in \\mathbb{R} \\) existuje matice se stopou \\( r \\) (např. \\( \\begin{pmatrix} r & 0 \\\\ 0 & 0 \\end{pmatrix} \\))."
+  },
+  {
+    "question": "Pro dimenzi prostoru \\( \\mathbb{R}^{m \\times n} \\) všech reálných matic typu \\( m \\times n \\) platí:",
+    "a": "\\( \\dim(\\mathbb{R}^{m \\times n}) = mn \\)",
+    "b": "Standardní bázi tvoří matice \\( E_{ij} \\) s jedničkou na pozici \\( (i, j) \\)",
+    "c": "Prostor je izomorfní s \\( \\mathbb{R}^{mn} \\)",
+    "d": "Pro \\( m = n \\) je prostor izomorfní s prostorem polynomů stupně \\( n^2 - 1 \\)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Matice \\( m \\times n \\) má \\( mn \\) nezávislých prvků, proto dimenze je \\( mn \\).",
+    "b_explanation": "Pravda. Matice \\( E_{ij} \\) s \\( (E_{ij})_{kl} = \\delta_{ik}\\delta_{jl} \\) tvoří standardní bázi. Je jich \\( mn \\) a jsou lineárně nezávislé.",
+    "c_explanation": "Pravda. Každý vektorový prostor dimenze \\( mn \\) nad \\( \\mathbb{R} \\) je izomorfní s \\( \\mathbb{R}^{mn} \\). Izomorfismus lze realizovat \"rozvinutím\" matice do vektoru.",
+    "d_explanation": "Pravda. \\( \\dim(\\mathbb{R}^{n \\times n}) = n^2 \\) a \\( \\dim(P_{n^2-1}(\\mathbb{R})) = n^2 \\). Prostory stejné dimenze nad stejným tělesem jsou izomorfní."
+  },
+  {
+    "question": "Nechť \\( f: V \\to V \\) je lineární zobrazení a \\( B, B' \\) jsou dvě báze \\( V \\). Pro matice \\( A, A' \\) zobrazení \\( f \\) v těchto bázích platí:",
+    "a": "\\( A' = P^{-1}AP \\), kde \\( P \\) je matice přechodu od \\( B \\) k \\( B' \\)",
+    "b": "\\( A \\) a \\( A' \\) mají stejnou hodnost",
+    "c": "\\( A \\) a \\( A' \\) mají stejný determinant",
+    "d": "\\( A \\) a \\( A' \\) mají stejná vlastní čísla",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "a_explanation": "Pravda. Matice téhož endomorfismu v různých bázích jsou podobné: \\( A' = P^{-1}AP \\). Toto je vztah podobnosti matic.",
+    "b_explanation": "Pravda. Podobné matice mají stejnou hodnost. Hodnost je invariant zobrazení, nezávislý na bázi.",
+    "c_explanation": "Pravda. \\( \\det(A') = \\det(P^{-1}AP) = \\det(P^{-1})\\det(A)\\det(P) = \\det(A) \\). Determinant je invariant podobnosti.",
+    "d_explanation": "Pravda. Podobné matice mají stejný charakteristický polynom, tedy stejná vlastní čísla (včetně násobností)."
+  },
+  {
+    "question": "Pro soustavu rovnic nad \\( \\mathbb{Z}_2 \\):\n\\( x + y = 1 \\)\n\\( x + z = 0 \\)\n\\( y + z = 1 \\)\nplatí:",
+    "a": "Soustava má právě jedno řešení",
+    "b": "Řešením je \\( (x, y, z) = (1, 0, 1) \\)",
+    "c": "Matice soustavy má hodnost 3",
+    "d": "Soustava nemá řešení",
+    "answers": [
+      "a",
+      "b"
+    ],
+    "a_explanation": "Pravda. Řešme: z první a třetí rovnice \\( x + y + y + z = 1 + 1 = 0 \\), tedy \\( x + z = 0 \\), což je druhá rovnice (konzistentní). Z rovnic lze jednoznačně určit \\( x = 1, y = 0, z = 1 \\).",
+    "b_explanation": "Pravda. Ověření: \\( 1 + 0 = 1 \\) ✓, \\( 1 + 1 = 0 \\) ✓, \\( 0 + 1 = 1 \\) ✓. Vše v \\( \\mathbb{Z}_2 \\).",
+    "c_explanation": "Nepravda. Matice soustavy \\( \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix} \\) má hodnost 2 (součet prvního a druhého řádku dá třetí v \\( \\mathbb{Z}_2 \\)).",
+    "d_explanation": "Nepravda. Soustava má řešení \\( (1, 0, 1) \\)."
+  }
+]
