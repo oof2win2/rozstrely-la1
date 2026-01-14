@@ -8,6 +8,7 @@ interface QuestionOptionTable {
 
 interface QuestionTable {
 	id: string;
+	text: string
 }
 
 interface QuestionOptionWithQuestionId extends QuestionOptionTable {

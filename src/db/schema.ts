@@ -18,6 +18,7 @@ export const todos = sqliteTable("todos", {
 
 export const question = sqliteTable("questions", {
 	id: text().primaryKey(),
+	text: text().notNull()
 });
 
 export const questionOption = sqliteTable(

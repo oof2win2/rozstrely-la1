@@ -59,7 +59,7 @@ export const Route = createFileRoute("/question/$id")({
 });
 
 function QuestionView() {
-	const questionData = Route.useLoaderData() as any;
+	const questionData = Route.useLoaderData();
 	const goToNext = useServerFn(getRandomQuestionId);
 	const [showResults, setShowResults] = useState(false);
 	const [selectedOptions, setSelectedOptions] = useState<Set<string>>(
@@ -124,11 +124,12 @@ function QuestionView() {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
-			<div className="w-full max-w-3xl bg-slate-800 border-slate-700 rounded-xl p-8">
+			<div className="w-full max-w-3xl bg-slate-800 border-slate-700 rounded-xl p-8 text-white">
 				<div className="mb-8">
 					<h1 className="text-3xl font-bold text-white mb-2">
 						Question {questionData.id}
 					</h1>
+					{questionData.text}
 					<p className="text-gray-300 text-lg">Select all correct answers:</p>
 				</div>
 
@@ -180,7 +181,7 @@ function QuestionView() {
 													<XCircle className="w-5 h-5 text-red-500" />
 												)}
 												<span className="text-gray-300">
-													{opt.correct ? "Correct" : "Incorrect"}
+													{opt.correct ? "Pravda" : "Nepravda"}
 												</span>
 											</div>
 											<p className="text-sm text-gray-400 italic">

@@ -1,7 +1,16 @@
 
-import { db, schema } from "@/db";
-import questions from "./questions_one.json"
+// import { db, schema } from "@/db";
+import * as schema from "@/db/schema"
+import {drizzle} from "drizzle-orm/libsql"
+import questions from "./questions_three.json"
 import {nanoid} from "nanoid"
+const db = drizzle({
+  schema,
+  connection: {
+    url: process.env.DATABASE_URL!,
+		authToken: process.env.DATABASE_AUTH_TOKEN!,
+  }
+})
 
 // await db.delete(schema.question)
 
@@ -10,7 +19,8 @@ for (const question of questions) {
   const qid = nanoid()
   queries.push(
     db.insert(schema.question).values({
-      id: qid
+      id: qid,
+      text: question.question
     })
   )
   for (const letter of ["a", "b", "c", "d"] as const) {

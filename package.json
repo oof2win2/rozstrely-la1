@@ -48,6 +48,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1",
     "itty-time": "^2.0.2",
     "kysely": "^0.28.9",
     "kysely-libsql": "^0.7.1",
