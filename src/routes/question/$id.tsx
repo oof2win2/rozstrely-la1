@@ -157,12 +157,8 @@ function QuestionView() {
 									type="checkbox"
 									id={`option-${opt.option}`}
 									checked={selectedOptions.has(opt.option)}
-									onChange={(e) => {
-										e.stopPropagation();
-										handleOptionToggle(opt.option);
-									}}
+									readOnly
 									disabled={showResults}
-									onClick={(e) => e.stopPropagation()}
 									className="mt-1 w-4 h-4 text-cyan-600 bg-slate-700 border-slate-600 rounded focus:ring-cyan-500 focus:ring-2"
 								/>
 								<div className="flex-1">
