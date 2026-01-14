@@ -3,6 +3,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { jsonArrayFrom } from "kysely/helpers/sqlite";
 import { db } from "@/db/index";
 import type { QuestionWithOptions } from "@/db/types.ts";
+import {sql} from "kysely"
 
 const getRandomQuestion = createServerFn({
 	method: "GET",
@@ -24,6 +25,7 @@ const getRandomQuestion = createServerFn({
 						.whereRef("question_option.questionId", "=", "questions.id"),
 				).as("questionOption"),
 			])
+			.orderBy(sql`random()`)
 			.execute();
 
 		if (questions.length === 0) {
