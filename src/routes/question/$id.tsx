@@ -235,7 +235,7 @@ function QuestionView() {
 												</span>
 											</div>
 											<p className="text-sm text-gray-400 italic">
-												{opt.reasoning}
+												<LatexText content={opt.reasoning} />
 											</p>
 										</div>
 									)}
