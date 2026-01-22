@@ -1,7 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/react-start";
 import katex from "katex";
-import { sql } from "kysely";
 import { jsonArrayFrom } from "kysely/helpers/sqlite";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { useState } from "react";
@@ -34,7 +33,6 @@ const getQuestion = createServerFn({
 				])
 				.executeTakeFirst();
 
-			console.log(questionData);
 			return questionData || null;
 		} catch (error) {
 			console.error("Error fetching question:", error);
@@ -42,19 +40,30 @@ const getQuestion = createServerFn({
 		}
 	});
 
-const getRandomQuestionId = createServerFn({
+const getNextQuestionId = createServerFn({
 	method: "GET",
-}).handler(async () => {
-	const questionId = await db
-		.selectFrom("questions")
-		.select("id")
-		.orderBy(sql`random()`)
-		.executeTakeFirst();
+})
+	.inputValidator((data: { currentId: string }) => data)
+	.handler(async ({ data }) => {
+		let questionId = await db
+			.selectFrom("questions")
+			.select("id")
+			.where("id", ">", data.currentId)
+			.orderBy("id")
+			.executeTakeFirst();
 
-	if (questionId?.id)
-		throw redirect({ to: "/question/$id", params: { id: questionId?.id } });
-	throw redirect({ to: "/" });
-});
+		if (!questionId) {
+			questionId = await db
+				.selectFrom("questions")
+				.select("id")
+				.orderBy("id")
+				.executeTakeFirst();
+		}
+
+		if (questionId?.id)
+			throw redirect({ to: "/question/$id", params: { id: questionId?.id } });
+		throw redirect({ to: "/" });
+	});
 export const Route = createFileRoute("/question/$id")({
 	component: QuestionView,
 	loader: async ({ params }) => await getQuestion({ data: { id: params.id } }),
@@ -104,7 +113,7 @@ function LatexText({ content }: { content: string }) {
 
 function QuestionView() {
 	const questionData = Route.useLoaderData();
-	const goToNext = useServerFn(getRandomQuestionId);
+	const goToNext = useServerFn(getNextQuestionId);
 	const [showResults, setShowResults] = useState(false);
 	const [selectedOptions, setSelectedOptions] = useState<Set<string>>(
 		new Set(),
@@ -261,7 +270,7 @@ function QuestionView() {
 								onClick={async () => {
 									setShowResults(false);
 									setSelectedOptions(new Set());
-									await goToNext();
+									await goToNext({ data: { currentId: questionData.id } });
 								}}
 								className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors"
 							>
@@ -291,7 +300,7 @@ function QuestionView() {
 								onClick={async () => {
 									setShowResults(false);
 									setSelectedOptions(new Set());
-									await goToNext();
+									await goToNext({ data: { currentId: questionData.id } });
 								}}
 								className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
 							>
