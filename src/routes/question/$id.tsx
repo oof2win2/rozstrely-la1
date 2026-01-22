@@ -1,11 +1,12 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/react-start";
-import { jsonArrayFrom } from "kysely/helpers/sqlite";
-import { db } from "@/db/index";
-
-import { useState } from "react";
-import { CheckCircle2, XCircle } from "lucide-react";
+import katex from "katex";
 import { sql } from "kysely";
+import { jsonArrayFrom } from "kysely/helpers/sqlite";
+import { CheckCircle2, XCircle } from "lucide-react";
+import { useState } from "react";
+import { db } from "@/db/index";
+import "katex/dist/katex.min.css";
 
 const getQuestion = createServerFn({
 	method: "GET",
@@ -33,6 +34,7 @@ const getQuestion = createServerFn({
 				])
 				.executeTakeFirst();
 
+			console.log(questionData);
 			return questionData || null;
 		} catch (error) {
 			console.error("Error fetching question:", error);
@@ -57,6 +59,48 @@ export const Route = createFileRoute("/question/$id")({
 	component: QuestionView,
 	loader: async ({ params }) => await getQuestion({ data: { id: params.id } }),
 });
+
+function LatexText({ content }: { content: string }) {
+	const renderLatex = (text: string) => {
+		const displayRegex = /\$\$([^$]+)\$\$/g;
+		const displayBracketsRegex = /\\\[(.*?)\\\]/g;
+		const inlineRegex = /\$([^$]+)\$/g;
+		const inlineParensRegex = /\\\((.*?)\\\)/g;
+		let result = text;
+
+		result = result.replace(displayRegex, (_, latex) => {
+			return katex.renderToString(latex, {
+				displayMode: true,
+				throwOnError: false,
+			});
+		});
+
+		result = result.replace(displayBracketsRegex, (_, latex) => {
+			return katex.renderToString(latex, {
+				displayMode: true,
+				throwOnError: false,
+			});
+		});
+
+		result = result.replace(inlineRegex, (_, latex) => {
+			return katex.renderToString(latex, {
+				displayMode: false,
+				throwOnError: false,
+			});
+		});
+
+		result = result.replace(inlineParensRegex, (_, latex) => {
+			return katex.renderToString(latex, {
+				displayMode: false,
+				throwOnError: false,
+			});
+		});
+
+		return result;
+	};
+
+	return <span dangerouslySetInnerHTML={{ __html: renderLatex(content) }} />;
+}
 
 function QuestionView() {
 	const questionData = Route.useLoaderData();
@@ -129,7 +173,7 @@ function QuestionView() {
 					<h1 className="text-3xl font-bold text-white mb-2">
 						Question {questionData.id}
 					</h1>
-					{questionData.text}
+					<LatexText content={questionData.text} />
 					<p className="text-gray-300 text-lg">Select all correct answers:</p>
 				</div>
 
@@ -173,7 +217,10 @@ function QuestionView() {
 										htmlFor={`option-${opt.option}`}
 										className="text-white cursor-pointer font-medium"
 									>
-										{opt.option.toUpperCase()}. {opt.text}
+										<span className="font-bold">
+											{opt.option.toUpperCase()}.
+										</span>{" "}
+										<LatexText content={opt.text} />
 									</label>
 									{showResults && (
 										<div className="mt-3 space-y-2">

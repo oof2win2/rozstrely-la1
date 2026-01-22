@@ -2,8 +2,9 @@
 // import { db, schema } from "@/db";
 import * as schema from "@/db/schema"
 import {drizzle} from "drizzle-orm/libsql"
-import questions from "./questions_four.json"
+import questions from "./questions-original.json"
 import {nanoid} from "nanoid"
+
 const db = drizzle({
   schema,
   connection: {
@@ -12,7 +13,7 @@ const db = drizzle({
   }
 })
 
-// await db.delete(schema.question)
+await db.delete(schema.question)
 
 const queries = []
 for (const question of questions) {
